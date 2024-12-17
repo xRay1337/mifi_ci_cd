@@ -63,6 +63,5 @@ jobs:
         run: |
           ssh zva@158.160.157.57 "git pull"
         with:
-          env:
-            SSH_PASSPHRASE: ${{secrets.SSH_PASSPHRASE}}
-            SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_PASSPHRASE: ${{secrets.SSH_PASSPHRASE}}
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
