@@ -59,9 +59,11 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Deploy to server
-        run: |
-          ssh zva@158.160.157.57 "git pull"
+      - name: Connect to Yandex Cloud
+        uses: appleboy/ssh-action@master
         with:
-          SSH_PASSPHRASE: ${{secrets.SSH_PASSPHRASE}}
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          host: 158.160.157.57
+          username: zva
+          key: ${{ secrets.SSH_PUBLIC_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: 22
