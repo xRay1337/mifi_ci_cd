@@ -65,7 +65,7 @@ jobs:
           host: 158.160.157.57
           username: zva
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-#          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
 #          port: 22
           script: |
             git pull
