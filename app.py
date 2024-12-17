@@ -18,4 +18,4 @@ if __name__ == "__main__":
     print(add(2, 3))
     print(minus(2, 3))
     print(multiply(2, 3))
-    # print(division(9, 3))
+    print(division(9, 3))
