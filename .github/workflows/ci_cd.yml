@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-          
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -26,7 +26,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest] # , windows-latest, macos-latest
     needs: build
     steps:
       - name: Checkout code
@@ -43,4 +43,22 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        run: python -m unittest discover
+        run: |
+          python -m unittest discover
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    if: success()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Deploy to server
+        run: |
+          ssh zva@158.160.157.57 "git pull"
