@@ -1,5 +1,5 @@
 import unittest
-from app import add, minus, multiply
+from app import add, minus, multiply, division
 
 
 class TestApp(unittest.TestCase):
@@ -13,7 +13,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(multiply(2, 3), 6)
 
     def testDivision(self):
-        self.assertEqual(multiply(6, 3), 2)
+        self.assertEqual(division(6, 3), 2)
 
 
 if __name__ == "__main__":
