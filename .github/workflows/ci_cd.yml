@@ -66,11 +66,6 @@ jobs:
           username: zva
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-#          port: 22
           script: |
             cd mifi_ci_cd
             git pull
-
-#      - name: Deploy to server
-#          run: |
-#            git pull
